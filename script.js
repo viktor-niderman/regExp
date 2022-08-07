@@ -18,6 +18,8 @@ const { createApp } = Vue
             computed: {
                 result() {
                     this.expression.isCorrect = true;
+                    if (!this.expression.string) return '⌛';
+
                     try {
                         let reg = new RegExp(this.expression.string, this.generatedFlags);
                         let rez = '';
@@ -29,9 +31,7 @@ const { createApp } = Vue
                             this.replacedText = this.text.replace(reg, this.replaceInput);
                             rez = "⬇";
                         }
-                        return this.expression.string 
-                            ? rez
-                            : '⌛';
+                        return rez === null ? 'null' : rez;
                     } catch (e) {
                         this.expression.isCorrect = false;
                         return '⛔';
@@ -55,7 +55,7 @@ const { createApp } = Vue
                     ],
                     flags: [
                         {name: 'g', enable: true, info: 'Поиск ищет все совпадения, без него – только первое'},
-                        {name: 'i', enable: false, info: 'Поиск не зависит от регистра'},
+                        {name: 'i', enable: false, info: 'Регистронезависимость'},
                         {name: 'm', enable: false, info: 'Многострочный режим'},
                         {name: 's', enable: false, info: 'Включает режим «dotall», при котором точка . может соответствовать символу перевода строки \\n'},
                         {name: 'u', enable: false, info: 'Включает полную поддержку Юникода'},
@@ -69,6 +69,7 @@ const { createApp } = Vue
                     text: '',
                     replacedText: '',
                     replaceInput: '',
+                    needHelp: false,
                 }
             },
             mounted() {
