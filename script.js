@@ -45,35 +45,6 @@ const { createApp } = Vue
                     })
                     return str;
                 },
-                regExpString() {
-                    let str = '';
-                    if (this.modes[0].enable) {
-                        str = `
-                        text.<span class="text-red">match</span>(<span class="text-blue">new</span>
-                        <span class="text-red">RegExp</span>(
-                            <span class="text-green">"${this.expression.string}"</span>, 
-                            <span class="text-green">"${this.generatedFlags}"</span>
-                        ))
-                        `;
-                    } else if (this.modes[1].enable) {
-                        str = `
-                        (<span class="text-blue">new</span>
-                        <span class="text-red">RegExp</span>(
-                            <span class="text-green">"${this.expression.string}"</span>, 
-                            <span class="text-green">"${this.generatedFlags}"</span>
-                        )).<span class="text-red">test</span>(text)
-                        `;
-                    } else if (this.modes[2].enable) {
-                        str = `
-                        text.<span class="text-red">replace</span>(<span class="text-blue">new</span>
-                        <span class="text-red">RegExp</span>(
-                            <span class="text-green">"${this.expression.string}"</span>, 
-                            <span class="text-green">"${this.generatedFlags}"</span>
-                        ), <span class="text-green">"${this.replaceInput}</span>)
-                        `;
-                    }
-                    return str;
-                },
             },
             data() {
                 return {

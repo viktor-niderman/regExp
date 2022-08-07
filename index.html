@@ -39,13 +39,32 @@
             
         </div>
         <div class="alert" :class="this.expression.isCorrect ? 'alert-info' : 'alert-danger'">
-            <div v-html="regExpString"></div>
+            <div>
+                <span class="text-blue">let </span>text = document.querySelector(<span class="text-green">"#mainText"</span>).innerHTML; <br>
+                <template v-if="this.modes[0].enable || this.modes[2].enable">text.</template>
+                
+                <span v-if="this.modes[0].enable" class="text-red">match</span>
+                <span v-if="this.modes[2].enable" class="text-red">replace</span>
+                
+                (<span class="text-blue">new </span>
+                <span class="text-red">RegExp</span>(
+                <span class="text-green">"{{expression.string}}"</span>, 
+                <span class="text-green">"{{generatedFlags}}"</span>)
+
+                <template v-if="this.modes[0].enable">;</template>
+                <template v-if="this.modes[1].enable">
+                    ).<span class="text-red">test</span>(text);
+                </template>
+                <template v-if="this.modes[2].enable">
+                    , <span class="text-green">"{{replaceInput}}"</span>)
+                </template>        
+            </div>
             <div v-if="!this.expression.isCorrect" class="error-right">Syntax error</div>
         </div>
         
         
         <div class="alert alert-success" style="min-height: 20px;">{{result}}</div>
-        <div v-html="modes[2].enable ? replacedText : text" class="mt-5"></div>
+        <div v-html="modes[2].enable ? replacedText : text" class="mt-5" id="mainText"></div>
     </div>
 
     <script src="libs/vue.js"></script>
