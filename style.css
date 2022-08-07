@@ -1,0 +1,14 @@
+.text-red {
+    color: #dd4a68;
+}
+.text-blue {
+    color: #748dcd;
+}
+.text-green {
+    color: #690;
+}
+.error-right {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
