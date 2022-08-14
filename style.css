@@ -17,7 +17,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.98);
     border-radius: 5px;
     z-index: 9999999;
 }

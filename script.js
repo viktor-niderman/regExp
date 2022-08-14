@@ -66,6 +66,7 @@ const { createApp } = Vue
                         string: '',
                         isCorrect: true,
                     },
+                    originText: '',
                     text: '',
                     replacedText: '',
                     replaceInput: '',
@@ -74,7 +75,36 @@ const { createApp } = Vue
             },
             mounted() {
                 window.onload = () => {
-                    this.text = window.text;
+                    this.originText = window.text;
+                    this.text = this.originText;
                 }
+                
+
+                document.addEventListener('mouseup', event => {  
+                    let selection = window.getSelection();
+                    let ext = selection.extentNode;
+                    let isMainText = false;
+                    for (let i = 0; i < 5; i++) {
+                        if (ext?.id === 'mainText') {
+                            isMainText = true;
+                            break;
+                        }
+                        try {
+                            ext = ext.parentNode;
+                        } catch (e) {
+                            break;
+                        }
+                    }
+
+                    if (isMainText) {
+                        let exactText = selection.toString();
+                        if (exactText) {
+                            this.text = exactText;
+                            return;
+                        }
+                    }
+                    
+                    this.text = this.originText;
+                });
             },
         }).mount('#app')

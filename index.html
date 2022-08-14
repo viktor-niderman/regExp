@@ -34,6 +34,15 @@
                     <li>^ - начало строки</li>
                     <li>$ - конец строки</li>
                 </ul>
+                <hr>
+                Квантификаторы:
+                <ul>
+                    <li>{5} - точное колличество</li>
+                    <li>{3,5} - от 3 до 5</li>
+                    <li>+ - {1,} - 1 или более</li>
+                    <li>? - {0,1} - 1 или ноль</li>
+                    <li>* - {0,} - 0 или более</li>
+                </ul>
             </div>
 
         </div>
@@ -88,8 +97,13 @@
         </div>
         
         
-        <div class="alert alert-success" style="min-height: 20px;">{{result}}</div>
-        <div v-html="(modes[2].enable && expression.string) ? replacedText : text" class="mt-5" id="mainText"></div>
+        <div 
+        class="alert alert-success count-result" 
+        style="min-height: 20px;"
+        >
+        <span class="">{{Array.isArray(result) ? `${result.length} matches: ` : '' }}</span>
+        {{result}}</div>
+        <div id="mainText" v-html="(modes[2].enable && expression.string) ? replacedText : originText" class="mt-5"></div>
     </div>
 
     <script src="libs/vue.js"></script>

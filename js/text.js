@@ -1,10 +1,12 @@
 window.text = `
 <h1>Ut sapiente voluptates vel dolores vitae. </h1>
 <h1>Немного русского текста. </h1>
-<p>Lorem ipsum dolor 😄 sit amet. A autem repellendus et consequatur alias eos fugiat exercitationem est error
-    asperiores est quia aperiam. (\\n =>)\n <br> Quo explicabo quia <em>Ut rerum est quasi error At iusto deleniti</em>
+<p>Viktor, Victor</p>
+<p>+7(901)-111-11-11 +7902-222-22-22 +7-903-333-33-3 +79144444444 8(905)-555-55-55 79066666666</p>
+<p>Lorem ipsum dolor 😄 sit amet. A +7(902)-131-25-34 autem repellendus et consequatur alias eos fugiat exercitationem est error
+    asperiores est quia #121212 aperiam. (\\n =>)\n <br> Quo explicabo quia <em>Ut rerum est quasi error At iusto deleniti</em>
     et inventore quae et aspernatur asperiores. Et illum odio qui facilis nisi aut consequatur quod et odio
-    reprehenderit ex animi saepe ab vero architecto. Eum galisum quas est sunt magni <a
+    reprehenderit ex animi saepe ab vero architecto. Eum galisum #AA00ef quas est sunt magni <a
         href="https://www.loremipzum.com" target="_blank">Est earum</a>. Aut voluptate velit vel quaerat qui ipsam
     dolorum ut ducimus quia! Qui dolor molestiae At optio officia id temporibus sapiente est necessitatibus quia qui
     voluptatibus doloribus et reiciendis quam aut omnis sint! Quo eius esse qui veritatis aspernatur eos autem minus ut
@@ -13,7 +15,7 @@ window.text = `
     assumenda. </p>
 <h2>Et nihil reprehenderit vel molestias aspernatur. </h2>
 <p>Id suscipit reiciendis sit beatae nobis non omnis laudantium et delectus dignissimos non similique eveniet eum quia
-    vitae. Est modi nihil hic nostrum rerumet asperiores non deserunt officia. Et consequuntur sunt et accusantium
+    vitae. Est modi nihil hic nostrum rerumet #AB02df asperiores non deserunt officia. Et consequuntur sunt et accusantium
     dolores aut sunt alias ut autem iusto ut voluptatem minima qui itaque corporis in quia autem. Et officia et
     exercitationem blanditiis est sunt mollitia quo laboriosam exercitationem eos quasi perspiciatis qui obcaecati
     repellendus. Ut rerum consectetur ab maiores obcaecati non ullam quod. Et cumque molestias <em>Est +7(903)-123-45-67
@@ -58,7 +60,7 @@ window.text = `
     repudiandae ab ipsum labore! Ab quidem voluptatibus aut dolor nemo est sint vero vel vitae delectus. Et ipsam
     laborum <em>Qui ullam qui quia minima est laborum omnis</em> non itaque repudiandae. </p>
 <p>Ab voluptas eaque et modi tempora adipisci et esse similique! Et similique voluptatem <em>Hic sint non velit dolore
-        et magnam deleniti</em>? Ad harum fuga aut voluptas dignissimos ad omnis aliquid. Eum vitae accusamus et sint
+        et magnam deleniti</em>? Ad #234674 harum fuga aut voluptas dignissimos ad omnis aliquid. Eum vitae accusamus et sint
     porro ut soluta voluptate a consequatur dicta qui exercitationem nostrum eos nulla sunt. Vel nisi voluptas qui natus
     Quis id maxime quia a error minus qui veritatis inventore et aspernatur cupiditate! </p>
 <p>Et modi quia <strong>Id galisum et impedit quaerat aut voluptates officia</strong>. Vel vero beatae id repellat
@@ -115,8 +117,8 @@ window.text = `
     <dt><dfn>Sed iure enim! </dfn></dt>
     <dd>Vel esse rerum hic itaque facilis aut reprehenderit consectetur ut similique iusto. </dd>
 </dl>
-<p>Ad eaque corporis At galisum quia et doloribus repellat aut esse laboriosam eos voluptatem magni. Quo Quis
-    voluptatibus sed debitis amet et quia ipsam. Qui voluptatem alias 33 consequatur optio <strong>Doloribus voluptatem
+<p>Ad eaque corporis At galisum quia et #1c1a1b doloribus repellat aut esse laboriosam eos voluptatem magni. Quo Quis
+    voluptatibus sed debitis #amet et quia ipsam. Qui voluptatem alias 33 consequatur optio <strong>Doloribus voluptatem
         quisquam ex temporibus rerum et perferendis illo</strong>. Eum ipsa cumque sit esse officiis et sunt deserunt
     est dolorum necessitatibus sit voluptate reprehenderit 33 reprehenderit consequuntur sit reprehenderit Quis. Quo
     consequatur fuga ea voluptatibus repudiandae rem consequatur nulla id molestias quod recusandae obcaecati et
@@ -133,7 +135,7 @@ window.text = `
     Sit animi repudiandae in doloremque fugit rem aliquid eveniet ut quam pariatur. Ut perspiciatis amet ad doloremque
     culpa est itaque minima et ipsum voluptatum sit quod cumque. Rem mollitia nihil <strong>Quo magni +7(918)-500-19-18
         fuga suscipit qui repudiandae similique</strong>. </p>
-<pre><code>&lt;!-- In porro maxime id excepturi sunt est magni internos. --&gt;<br>&lt;aut&gt;Aut fugiat fuga cum debitis corporis 33 nobis veritatis.&lt;/aut&gt;<br>&lt;sequi&gt;33 placeat unde.&lt;/sequi&gt;<br>&lt;facere&gt;Est tempora obcaecati?&lt;/facere&gt;<br></code></pre>
+<pre><code>&lt;!-- In porro maxime id #excepturi sunt est magni internos. --&gt;<br>&lt;aut&gt;Aut fugiat fuga cum debitis corporis 33 nobis veritatis.&lt;/aut&gt;<br>&lt;sequi&gt;33 placeat unde.&lt;/sequi&gt;<br>&lt;facere&gt;Est tempora obcaecati?&lt;/facere&gt;<br></code></pre>
 <p>Ut galisum quae est provident iusto id possimus deleniti. Vel consequatur cumque qui ratione autem <em>A eligendi At
         velit expedita a recusandae nesciunt aut minima sapiente</em> ab pariatur soluta. In quibusdam modi <strong>Et
         doloribus in voluptates harum et labore iste</strong> qui voluptas neque aut ullam earum. Aut cupiditate
