@@ -2,113 +2,127 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RegExp</title>
-    <link rel="stylesheet" href="libs/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RegExp</title>
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="app" class="container mt-4">
-        <div id="helper">
-            <div v-if="!needHelp" @click="needHelp = true" class="p-2">
-                <div class="d-flex justify-content-end">
-                    <button class="btn" @click="needHelp = true">🤚</button>
-                </div>
-            </div>
-            <div v-else class="p-2">
-                <div class="d-flex justify-content-end">
-                    <button class="btn" @click="needHelp = false">❌</button>
-                </div>
-                <ul>
-                    <li>\d (digit) – цифры</li>
-                    <li>\s (space) – пробельные символы, табы, новые строки</li>
-                    <li>\w (word)– латиница, цифры, нижнее подчёркивание</li>
-                    <li class="text-info">\p (только юникод) - \p{L} - все буквы <a href="https://learn.javascript.ru/regexp-unicode#yunikodnye-svoystva-p" target="_blank">подробнее</a></li>
-                    <li>.– любой символ</li>
-                </ul>
-                <hr>
-                <ul>
-                    <li>^ - начало строки</li>
-                    <li>$ - конец строки</li>
-                </ul>
-                <hr>
-                Квантификаторы:
-                <ul>
-                    <li>{5} - точное колличество</li>
-                    <li>{3,5} - от 3 до 5</li>
-                    <li>+ - {1,} - 1 или более</li>
-                    <li>? - {0,1} - 1 или ноль</li>
-                    <li>* - {0,} - 0 или более</li>
-                </ul>
-            </div>
-
-        </div>
-        <div>
-            <div>
-                <button 
-                class="btn me-1" 
-                v-for="(mode, i) in modes" 
-                :class="mode.enable ? 'btn-info' : ''"
-                @click="enableMod(i)"
-                >
-                    {{mode.name}}
-                </button>
-            </div>
-            <div class="d-flex">
-                <input type="text" v-model="this.expression.string" class="form-control my-2">
-                <input type="text" v-model="replaceInput" v-if="modes[2].enable" class="form-control my-2 ms-2" placeholder="replaced by">
-            </div>
-            <button 
-                v-for="flag in flags"
-                class="btn my-1"
-                :class="flag.enable ? 'btn-success' : ''"
-                @click="flag.enable = !flag.enable"
-                v-on:mouseover="setCurrentFlagInfo(flag.info)"
-                v-on:mouseout="setCurrentFlagInfo('')"
-            >{{flag.name}}</button>
-            <div class="btn" v-if="selectedFlagInfo">{{selectedFlagInfo}}</div>
-            
-        </div>
-        <div class="alert" :class="this.expression.isCorrect ? 'alert-info' : 'alert-danger'">
-            <div>
-                <span class="text-blue">let </span>text = document.querySelector(<span class="text-green">"#mainText"</span>).innerHTML; <br>
-                <template v-if="this.modes[0].enable || this.modes[2].enable">text.</template>
-                
-                <span v-if="this.modes[0].enable" class="text-red">match</span>
-                <span v-if="this.modes[2].enable" class="text-red">replace</span>
-                
-                (<span class="text-blue">new </span>
-                <span class="text-red">RegExp</span>(
-                <span class="text-green">"{{expression.string}}"</span>, 
-                <span class="text-green">"{{generatedFlags}}"</span>)
-
-                <template v-if="this.modes[0].enable">);</template>
-                <template v-if="this.modes[1].enable">
-                    ).<span class="text-red">test</span>(text);
-                </template>
-                <template v-if="this.modes[2].enable">
-                    , <span class="text-green">"{{replaceInput}}"</span>)
-                </template>        
-            </div>
-            <div v-if="!this.expression.isCorrect" class="error-right">Syntax error</div>
-        </div>
-        
-        
-        <div 
-        class="alert alert-success count-result" 
-        style="min-height: 20px;"
-        >
-        <span class="">{{Array.isArray(result) ? `${result.length} matches: ` : '' }}</span>
-        {{result}}</div>
-        <div id="mainText" v-html="(modes[2].enable && expression.string) ? replacedText : originText" class="mt-5"></div>
+<div id="app" class="container">
+  <h1>Test Regular Expression on JavaScript</h1>
+  <div id="helper">
+    <div v-if="!needHelp" @click="needHelp = true" class="p-2">
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-dark" @click="needHelp = true">If you need help 🤚</button>
+      </div>
+    </div>
+    <div v-else class="p-2 shadow">
+      <div class="d-flex justify-content-end">
+        <button class="btn" @click="needHelp = false">❌</button>
+      </div>
+      <ul>
+        <li>\d (digit) – Numbers</li>
+        <li>\s (space) – Whitespace characters, tabs, new lines</li>
+        <li>\w (word)– Latin letters, numbers, underscore</li>
+        <li class="text-info">\p (Unicode only) - \p{L} - all letters <a
+            href="https://learn.javascript.ru/regexp-unicode#yunikodnye-svoystva-p" target="_blank">More details</a>
+        </li>
+        <li>.– any character</li>
+      </ul>
+      <hr>
+      <ul>
+        <li>^ - start of line</li>
+        <li>$ - end of line</li>
+      </ul>
+      <hr>
+      Quantifiers:
+      <ul>
+        <li>{5} - exact quantity</li>
+        <li>{3,5} - from 3 to 5</li>
+        <li>+ - {1,} - 1 or more</li>
+        <li>? - {0,1} - 1 or 0</li>
+        <li>* - {0,} - 0 or more</li>
+      </ul>
     </div>
 
-    <script src="libs/vue.js"></script>
-    <script src="script.js"></script>
-    <script src="js/text.js"></script>
+  </div>
+  <div>
+    <div>
+      <button
+          class="btn me-1"
+          v-for="(mode, i) in modes"
+          :class="mode.enable ? 'btn-info' : ''"
+          @click="enableMod(i)"
+      >
+        {{mode.name}}
+      </button>
+    </div>
+    <div class="d-flex">
+      <input type="text" v-model="this.expression.string" class="form-control my-2" placeholder="Type your regExp here">
+      <input type="text" v-model="replaceInput" v-if="modes[2].enable" class="form-control my-2 ms-2"
+             placeholder="Replaced by">
+    </div>
+    Flags:
+    <button
+        v-for="flag in flags"
+        class="btn my-1 mx-1"
+        :class="flag.enable ? 'btn-success' : ''"
+        @click="flag.enable = !flag.enable"
+        v-on:mouseover="setCurrentFlagInfo(flag.info)"
+        v-on:mouseout="setCurrentFlagInfo('')"
+    >{{flag.name}}
+    </button>
+    <div class="btn" v-if="selectedFlagInfo">{{selectedFlagInfo}}</div>
+
+  </div>
+  <div class="alert" :class="this.expression.isCorrect ? 'alert-info' : 'alert-danger'">
+    <div>
+      <p class="text-muted small">How the entered regular expression will look in JavaScript</p>
+      <span class="text-blue">let </span>text = document.querySelector(<span class="text-green">"#mainText"</span>).innerHTML;
+      <br>
+      <template v-if="this.modes[0].enable || this.modes[2].enable">text.</template>
+
+      <span v-if="this.modes[0].enable" class="text-red">match</span>
+      <span v-if="this.modes[2].enable" class="text-red">replace</span>
+
+      (<span class="text-blue">new </span>
+      <span class="text-red">RegExp</span>(
+      <span class="text-green">"{{expression.string}}"</span>,
+      <span class="text-green">"{{generatedFlags}}"</span>)
+
+      <template v-if="this.modes[0].enable">);</template>
+      <template v-if="this.modes[1].enable">
+        ).<span class="text-red">test</span>(text);
+      </template>
+      <template v-if="this.modes[2].enable">
+        , <span class="text-green">"{{replaceInput}}"</span>)
+      </template>
+    </div>
+    <div v-if="!this.expression.isCorrect" class="error-right">Syntax error</div>
+  </div>
+
+
+  <div
+      class="alert count-result"
+      :class="this.expression.isCorrect ? 'alert-success' : 'alert-danger'"
+      style="min-height: 20px;"
+      v-show="!this.modes[2].enable"
+  >
+    <p class="text-muted small">What regular expression will return</p>
+    <span class="">{{Array.isArray(result) ? `${result.length} matches: ` : '' }}</span>
+    {{result}}
+  </div>
+  <p class="text-muted mt-5">Text on which the entered regular expression will be tested 👇</p>
+  <hr>
+  <div id="mainText" v-html="(modes[2].enable && expression.string) ? replacedText : originText" class=""></div>
+</div>
+
+<script src="libs/vue.js"></script>
+<script src="script.js"></script>
+<script src="js/text.js"></script>
 
 </body>
 
